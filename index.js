@@ -1,8 +1,8 @@
 
 
 const display = document.querySelector("#myDiv h1");
-const daysDisplay = document.querySelector("#days h1:nth-of-type(2)");
-const monthsDisplay = document.querySelector("#days h1:nth-of-type(1)");
+const daysDisplay = document.querySelector("#months");
+const monthsDisplay = document.querySelector("#daysCount");
 
 let time = null;
 let startTime = 0;

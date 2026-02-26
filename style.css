@@ -37,3 +37,28 @@ body {
     justify-content: center;
     height: 200px;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #myDiv {
+        font-size: 2.5em;
+        height: auto;
+        padding: 20px;
+    }
+    
+    #days {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #myDiv {
+        font-size: 1.5em;
+        padding: 15px;
+    }
+    
+    #days {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+}

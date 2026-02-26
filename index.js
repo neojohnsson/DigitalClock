@@ -5,23 +5,11 @@ const daysDisplay = document.querySelector("#months");
 const monthsDisplay = document.querySelector("#daysCount");
 
 let time = null;
-let startTime = 0;
-let elapsedTime = 0;
+
+// Fixed start date - change this to when you want the timer to start
+const FIXED_START_TIME = new Date("2026-01-01").getTime();
 
 function startTimer() {
-    if (time) {
-        return;
-    }
-    
-    // Check if there's a stored start time
-    const storedStartTime = localStorage.getItem("timerStartTime");
-    if (storedStartTime) {
-        startTime = parseInt(storedStartTime);
-    } else {
-        startTime = Date.now() - elapsedTime;
-        localStorage.setItem("timerStartTime", startTime);
-    }
-    
     time = requestAnimationFrame(updateTimer);
 }
 
@@ -30,8 +18,8 @@ function pad(number)  {
 }
 
 function updateTimer() {
-    const currrentTime = Date.now();
-    elapsedTime = currrentTime - startTime;
+    const currentTime = Date.now();
+    const elapsedTime = currentTime - FIXED_START_TIME;
     const months = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 30));
     const days = Math.floor((elapsedTime % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
     const hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

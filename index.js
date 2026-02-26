@@ -30,12 +30,13 @@ function pad(number)  {
 function updateTimer() {
     const currrentTime = Date.now();
     elapsedTime = currrentTime - startTime;
+    const days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
     const hours = Math.floor(elapsedTime / (1000 * 60 * 60));
     const minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
     const milliseconds = Math.floor((elapsedTime % 1000) / 10);
 
-    display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}:${pad(milliseconds)}`;
+    display.textContent = `${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}:${pad(milliseconds)}`;
     time = requestAnimationFrame(updateTimer);
 }
 

@@ -10,7 +10,16 @@ function startTimer() {
     if (time) {
         return;
     }
-    startTime = Date.now() - elapsedTime;
+    
+    // Check if there's a stored start time
+    const storedStartTime = localStorage.getItem("timerStartTime");
+    if (storedStartTime) {
+        startTime = parseInt(storedStartTime);
+    } else {
+        startTime = Date.now() - elapsedTime;
+        localStorage.setItem("timerStartTime", startTime);
+    }
+    
     time = requestAnimationFrame(updateTimer);
 }
 

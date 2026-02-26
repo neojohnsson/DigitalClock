@@ -7,7 +7,7 @@ const monthsDisplay = document.querySelector("#daysCount");
 let time = null;
 
 // Fixed start date - change this to when you want the timer to start
-const FIXED_START_TIME = new Date("2026-01-01").getTime();
+const FIXED_START_TIME = new Date("2026-02-26").getTime();
 
 function startTimer() {
     time = requestAnimationFrame(updateTimer);
